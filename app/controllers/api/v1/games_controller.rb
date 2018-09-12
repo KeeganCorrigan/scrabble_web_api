@@ -1,9 +1,13 @@
 class Api::V1::GamesController < ApplicationController
+  before_action :set_game
+
   def show
-    game = Game.find(params[:id])
+    render json: @game, serializer: GameSerializer
+  end
 
-    
+  private
 
-    render json: game, serializer: GameSerializer
+  def set_game
+    @game = Game.find(params[:id])
   end
 end
