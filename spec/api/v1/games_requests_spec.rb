@@ -15,17 +15,14 @@ describe 'games API' do
 
       get "/api/v1/games/#{game.id}"
 
-      binding.pry
-
       game = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to be_successful
-      expect(game.count).to eq(1)
       expect(game).to have_key(:game_id)
       expect(game).to have_key(:scores)
-      expect(game[:scores].count).to_not have_key(2)
+      expect(game[:scores].count).to eq(2)
       expect(game[:scores].first).to have_key(:user_id)
-      expect(game[:scores].first).to have_key(:score_id)
+      expect(game[:scores].first).to have_key(:score)
     end
   end
 end
