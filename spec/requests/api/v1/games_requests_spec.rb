@@ -38,13 +38,15 @@ describe 'games API' do
       sal.plays.create(game: game, word: "josh", score: 14)
       sal.plays.create(game: game, word: "no", score: 2)
 
-      json_payload = {user_id: 1, word:"at"}.to_json
+      json_payload = {user_id: "1", word:"at"}
 
       post "/api/v1/games/#{game.id}/plays", params: json_payload
 
-      expect(response).to eq(201)
+      expect(response).to have_http_status(201)
 
       get "/api/v1/games/#{game.id}"
+
+      game = JSON.parse(response.body, symbolize_names: true)
 
       expect(game[:scores].first[:score]).to eq(17)
     end
