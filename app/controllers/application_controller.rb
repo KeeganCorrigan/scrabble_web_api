@@ -27,4 +27,12 @@ class ApplicationController < ActionController::Base
       render json: { message: "Invalid game" }, status: 400
     end
   end
+
+  def validate_word
+    valid_word = WordPresenter.new(params[:word]).validate_word if params[:word]
+
+    if valid_word.include?("not a valid word")
+      render json: { message: "Invalid word" }, status: 400
+    end
+  end
 end

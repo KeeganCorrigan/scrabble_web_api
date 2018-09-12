@@ -76,5 +76,23 @@ describe 'games API' do
 
       expect(response).to have_http_status(401)
     end
+
+    it "returns Invalid word if a word is invalid" do
+      josh = User.create(id: 1, name: "Josh")
+      sal = User.create(id: 2, name: "Sal")
+
+      game = Game.create(player_1: josh, player_2: sal)
+
+      josh.plays.create(game: game, word: "sal", score: 3)
+      josh.plays.create(game: game, word: "zoo", score: 12)
+      sal.plays.create(game: game, word: "josh", score: 14)
+      sal.plays.create(game: game, word: "no", score: 2)
+
+      json_payload = {user_id: josh.id, word:"aoiasd01oiadk"}
+
+      post "/api/v1/games/#{game.id}/plays", params: json_payload
+
+      expect(response).to have_http_status(400)
+    end
   end
 end

@@ -1,5 +1,5 @@
 class Api::V1::PlaysController < ApplicationController
-  before_action :set_game
+  before_action :validate_word, :set_game, 
 
   def create
     @player.plays.create(word: params[:word], game_id: params[:game_id])
