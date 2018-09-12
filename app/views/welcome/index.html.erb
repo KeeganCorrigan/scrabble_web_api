@@ -2,3 +2,7 @@
   <%= text_field_tag :q %>
   <%= submit_tag 'Validate Word' %>
 <% end %>
+
+<% if @valid_word %>
+  <%= @valid_word %>
+<% end %>
