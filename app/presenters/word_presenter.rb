@@ -6,8 +6,7 @@ class WordPresenter
 
   def validate_word
     payload = @oxford_service.validate_word
-    binding.pry
-    if payload[:results]
+    if payload
       return "'#{@word}' is a valid word and its root form is '#{payload[:results].first[:lexicalEntries][0][:inflectionOf].first[:id]}'."
     else
       return "'#{@word}' is not a valid word."

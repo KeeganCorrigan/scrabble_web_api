@@ -3,6 +3,6 @@
   <%= submit_tag 'Validate Word' %>
 <% end %>
 
-<% if @valid_word %>
-  <%= @valid_word %>
+<% if @presenter %>
+  <%= @presenter.validate_word %>
 <% end %>
