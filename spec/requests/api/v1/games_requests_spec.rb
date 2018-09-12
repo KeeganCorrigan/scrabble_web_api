@@ -65,11 +65,6 @@ describe 'games API' do
 
       game = Game.create(player_1: josh, player_2: sal)
 
-      josh.plays.create(game: game, word: "sal", score: 3)
-      josh.plays.create(game: game, word: "zoo", score: 12)
-      sal.plays.create(game: game, word: "josh", score: 14)
-      sal.plays.create(game: game, word: "no", score: 2)
-
       json_payload = {user_id: "8923", word:"at"}
 
       post "/api/v1/games/#{game.id}/plays", params: json_payload
@@ -82,11 +77,6 @@ describe 'games API' do
       sal = User.create(id: 2, name: "Sal")
 
       game = Game.create(player_1: josh, player_2: sal)
-
-      josh.plays.create(game: game, word: "sal", score: 3)
-      josh.plays.create(game: game, word: "zoo", score: 12)
-      sal.plays.create(game: game, word: "josh", score: 14)
-      sal.plays.create(game: game, word: "no", score: 2)
 
       json_payload = {user_id: josh.id, word:"aoiasd01oiadk"}
 
