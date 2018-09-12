@@ -35,7 +35,7 @@ describe 'games API' do
   end
 
   context "POST /api/v1/games/1/plays" do
-    it "incrememts total score for the game" do
+    it "increments total score for the game" do
       josh = User.create(id: 1, name: "Josh")
       sal = User.create(id: 2, name: "Sal")
 

@@ -9,7 +9,7 @@ class OxfordService
   end
 
   def validate_word
-    get_url("/api/v1/inflections/en/#{@word}/grammaticalFeatures=singular")
+    get_url("/api/v1/inflections/en/#{@word}")
   end
 
   private

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://od-api.oxforddictionaries.com/api/v1/inflections/en/fozes/grammaticalFeatures=singular
+    uri: https://od-api.oxforddictionaries.com/api/v1/inflections/en/fozes
     body:
       encoding: US-ASCII
       string: ''
@@ -25,7 +25,7 @@ http_interactions:
       Content-Type:
       - text/html
       Date:
-      - Wed, 12 Sep 2018 16:03:21 GMT
+      - Wed, 12 Sep 2018 17:40:31 GMT
       Server:
       - openresty/1.9.7.4
       Version:
@@ -42,5 +42,5 @@ http_interactions:
         <h1>Not Found</h1>
         <p>No lemmas found matching supplied source_lang and word</p>
     http_version: 
-  recorded_at: Wed, 12 Sep 2018 16:03:21 GMT
+  recorded_at: Wed, 12 Sep 2018 17:40:31 GMT
 recorded_with: VCR 4.0.0
