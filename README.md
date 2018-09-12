@@ -29,3 +29,19 @@ When I visit “/”
 And I fill in a text box with “foxez”
 And I click “Validate Word”
 Then I should see a message that says “‘foxez’ is not a valid word.”
+
+When I send a GET request to “/api/v1/games/1” I receive a JSON response as follows:
+
+```{
+  "game_id":1,
+  "scores": [
+    {
+      "user_id":1,
+      "score":15
+    },
+    {
+      "user_id":2,
+      "score":16
+    }
+  ]
+}```
