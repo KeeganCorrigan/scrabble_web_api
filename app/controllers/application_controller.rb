@@ -19,4 +19,12 @@ class ApplicationController < ActionController::Base
       render json: { message: "Unauthorized" }, status: 401
     end
   end
+
+  def validate_game
+    game = Game.where(id: params[:id])
+
+    unless game.length > 0
+      render json: { message: "Invalid game" }, status: 400
+    end
+  end
 end

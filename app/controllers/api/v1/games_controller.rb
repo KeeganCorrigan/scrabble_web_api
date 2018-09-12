@@ -1,5 +1,5 @@
 class Api::V1::GamesController < ApplicationController
-  before_action :set_game
+  before_action :validate_game, :set_game
 
   def show
     render json: @game, serializer: GameSerializer
