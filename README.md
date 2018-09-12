@@ -18,7 +18,7 @@ Background:
 * Use endpoint “GET /inflections/{source_lang}/{word_id}” under the “Lemmatron” heading
 
 Feature:
-As a guest user (no sign in necessary)
+As a guest user (no sign in\ necessary)
 When I visit “/”
 And I fill in a text box with “foxes”
 And I click “Validate Word”
